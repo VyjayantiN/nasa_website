@@ -1,0 +1,185 @@
+<html>
+    <header>
+        <a href="#" class="logo"></a>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#sec">About</a></li>
+            <li><a href="#work">Work</a></li>
+        </ul>
+        <link rel="stylesheet" href="style.css">
+
+        <style>
+            /* Add CSS styles for the card container */
+            .card-container {
+                display: flex;
+                justify-content: space-between; /* Adjust the alignment as needed */
+                padding: 20px; /* Add padding for spacing */
+            }
+        
+            /* Add CSS styles for individual cards */
+            .card {
+                width: 18rem;
+                /* Add any other card-specific styles here */
+            }
+         
+        .figure-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .snip1200 {
+            flex: 5;
+            margin: 10px;
+            text-align: center;
+        }
+        .snip1200 img {
+            max-width: 100%;
+            height: auto;
+        }
+  
+        </style>
+    
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>    
+</header>
+    <body>
+
+   <script src="three.min.js">
+
+   </script>
+   <script>
+    let scene;
+    function init(){
+        scene=new THREE.Scene();
+        scene.background=new THREE.Color(0xdddddd);
+        camera=new THREE.PerspectiveCamera(40,window.innerWidth/window.innerHeight,1,5000);
+        hlight=new THREE.AmbientLight(0x404040,100);
+        scene.add(hlight);
+        renderer=new THREE.WebGLRenderer({antialias:true});
+        renderer.setSize(window.innerWidth,window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+   }
+    </script>
+    <section>
+        <img src="https://drive.google.com/uc?export=view&id=1nHl2PZEhjGl18XyZYWnWloFciszXvpXh" id="stars">
+        <img src="mars1.png" id="moon">
+        <img src="hill_fake.JPG" id="mountains_behind">
+        <h4 id="text">ALDRIN MISSION</h4>
+        <a href="#sec" id="btn">Explore</a>
+        <img src="red_11.png" id="mountains_front">
+    </section>
+        <!-- New Cards Code -->
+        <div class="figure-container" style="padding-top:7rem;" id="work">
+            <figure class="snip1200">
+                <img src="aldrin_e_m.jpg" alt="sq-sample32" />
+                <figcaption>
+                    <p>
+                        <a href="model_viewer.html" target="_blank" style="color:white">Open Viewer</a>
+                      
+                        <br><br>
+                        Explore the structure and the components of Aldrin Spacecraft.                  
+                         </p>
+                    <div class="heading">
+                        <h3><span>Earth-Mars Cycler</span>
+                           </h3>
+                       
+    
+                    </div>
+                </figcaption>
+                    
+              
+    
+            </figure>
+            <figure class="snip1200">
+                <img src="satti.JPG" alt="sq-sample31" />
+                <figcaption>
+                    <p>
+                        <a href="model_viewer.html" target="_blank" style="color:white">Open Viewer</a>
+                      
+                        <br><br>
+                        Let your brain explode with fun and knowledge.Have a visual feast with this space mission exploration
+                        </p>
+                    <div class="heading">
+                        <h3><span>Play and Learn</span></h3>
+                    </div>
+                </figcaption>
+                <a href="#"></a>
+            </figure>
+            <figure class="snip1200">
+                <img src="cycle1.JPG" alt="sq-sample32" />
+                <figcaption>
+                    <p>
+                        <a href="https://drive.google.com/file/d/1xZ_o35j3Xh1bM2_y8VqTHYk3GoMACTzo/view?usp=sharing" target="_blank" class="miss" style="color:white">View Project</a>
+                        <br><br>
+                       Understand the complex concept of human transportation between Earth and Mars which includes understanding the orbital transfter concepts.
+                      
+                         </p>
+                    <div class="heading">
+                        <h3><span>Aldrin Mission Concept</span>
+                           </h3>
+                       
+    
+                    </div>
+                </figcaption>
+                    
+              
+    
+            </figure>
+        </div>
+       
+    <div class="sec" id="sec">
+        <h2 style="text-align: center;">Earth-Mars Cycler</h2>
+        <p>
+            The Cycler system alters the philosophy behind a Mars program. It makes possible the dream of regular flights to the Red Planet and a permanent human presence there. That’s the only way we’ll ever succeed in taking mankind’s next giant leap: a subway-in-the-sky between our planet and our future second home..
+            Buzz Aldrin – Popular Mechanics, December 2005.
+            <br><br>
+            Aldrin’s system of cycling spacecraft makes travel to Mars possible using far less propellant than conventional means, with an expected five and a half month journey from the Earth to Mars, and a return trip to Earth of about the same duration on a twin semi-cycler. The Aldrin Cycler’s design features a slow rotation of the spacecraft to create artificial gravity to avoid the bone and muscle loss hazard of weightlessness on long-duration trips. In each cycle when the Aldrin Cycler’s trajectory swings it by the Earth, a smaller Earth-departing interceptor spacecraft ferries crew and cargo up to dock with the Cycler spacecraft. Ultimately, the Aldrin Cycler system of transportation offers a way to make travel to Mars sustainable for the long-term, in contrast to the brief excursions to the Moon during the six Apollo lunar landings from 1969 to 1972.
+            
+        </p>
+    </div>
+
+
+
+
+    
+    <script src="script.js"></script>
+    <script>
+        // Function to load and display the GLB model
+        function loadAndDisplayModel() {
+            const container = document.getElementById("modelContainer");
+
+            // Create a scene
+            const scene = new THREE.Scene();
+
+            // Create a camera
+            const camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            // Create a WebGLRenderer
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+            container.appendChild(renderer.domElement);
+
+            // Load the GLB model
+            const loader = new THREE.GLTFLoader();
+            loader.load('C:\Users\nlnsa\Desktop\Desperate\satellite (1).glb', (gltf) => {
+                const model = gltf.scene;
+                scene.add(model);
+
+                // Add any additional interactions or animations here if needed
+
+                // Render the scene
+                function animate() {
+                    requestAnimationFrame(animate);
+                    renderer.render(scene, camera);
+                }
+                animate();
+            });
+        }
+
+        // Add a click event listener to the button to load and display the model
+        const loadModelButton = document.getElementById("loadModelButton");
+        loadModelButton.addEventListener("click", loadAndDisplayModel);
+    </script>
+</body>
+</html>

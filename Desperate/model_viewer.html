@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>3D Model Viewer</title>
+    <!-- Include Three.js library here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <h1>3D Model Viewer</h1>
+
+    <!-- Container for the 3D model -->
+    <div id="modelContainer" style="width: 800px; height: 600px; background-color: white;"></div>
+    <img src="FabConvert.com_satellite.gif" alt="Your GIF Image" style="width: 400px; height: 300px;">
+    <script>
+        // Function to extract URL parameters
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Check if the "displayModel" parameter is set to "true"
+        var displayModelParam = getParameterByName('displayModel');
+        if (displayModelParam === 'true') {
+            // Create a scene
+            const scene = new THREE.Scene();
+
+            // Create a camera
+            const camera = new THREE.PerspectiveCamera(75, 800 / 600, 0.1, 1000);
+            camera.position.z = 5;
+
+            // Create a WebGLRenderer
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(800, 600);
+            document.body.appendChild(renderer.domElement);
+
+            // Load the OBJ model
+            const loader = new THREE.OBJLoader();
+            loader.load('https://sketchfab.com/models/c6bd3895e73f4fd9bde3fff88381cad4/edit', (object) => {
+                scene.add(object);
+
+                // Render the scene
+                function animate() {
+                    requestAnimationFrame(animate);
+                    renderer.render(scene, camera);
+                }
+                animate();
+            });
+        }
+    </script>
+</body>
+</html>
